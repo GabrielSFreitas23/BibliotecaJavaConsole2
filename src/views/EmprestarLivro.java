@@ -25,8 +25,12 @@ public class EmprestarLivro {
 
 			if (codCli == clienteCadastrado.getCodigo()) {
 				
-				if(mesAtual.getMonth() > mesDevolucao.getMonth()) {
-					clienteCadastrado.setMulta(true);
+				try {
+					if(mesAtual.getMonth() > mesDevolucao.getMonth()) {
+						clienteCadastrado.setMulta(true);
+					}
+				} catch (Exception e) {
+					System.out.println("\n");
 				}
 
 				if(clienteCadastrado.getMulta() == false) {

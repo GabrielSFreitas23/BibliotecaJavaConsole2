@@ -1,10 +1,14 @@
 package views;
 
+import java.util.Scanner;
+
 import dao.LivroDAO;
 import models.Livro;
 import utils.Console;
 
 public class MenuCliente {
+	
+	private static Scanner sc = new Scanner(System.in);
 
 	public static void renderizar() {
 
@@ -14,8 +18,10 @@ public class MenuCliente {
 			System.out.println("1 - Acervo");
 			System.out.println("2 - Emprestar Livro");
 			System.out.println("3 - Buscar um Livro");
+			System.out.println("4 - Comprar um Livro");
+			System.out.println("5 - Vender um Livro");
 			System.out.println("0 - Voltar para menu principal");
-			opcao = Console.readInt("\nDigite uma opção: ");
+			opcao = lerInteiro("\nDigite uma opção: ");
 
 			switch (opcao) {
 			case 1:
@@ -36,6 +42,12 @@ public class MenuCliente {
 				}
 	
 				break;
+			case 4:
+				ComprarLivros.renderizar();
+				break;
+			case 5:
+				VenderLivros.renderizar();
+				break;
 			case 0:
 				System.out.println("\nRetornando ao menu principal");
 				break;
@@ -46,6 +58,21 @@ public class MenuCliente {
 			
 		} while (opcao != 0);
 
+	}
+	
+	public static int lerInteiro(String msg) {
+		boolean valorCorreto = false;
+		int valor = 0;
+		do {
+			try {
+				System.out.println(msg);
+				valor = Integer.parseInt(sc.next());
+				valorCorreto = true;
+			} catch (NumberFormatException e) {
+				System.out.println("\nDigite apenas números");
+			} 
+		}while(!valorCorreto);
+		return valor;
 	}
 
 }

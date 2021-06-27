@@ -1,8 +1,12 @@
 package views;
+import java.util.Scanner;
+
 import utils.Console;
 
 public class MenuFuncionario {
 
+	private static Scanner sc = new Scanner(System.in);
+	
 	public static void renderizar() {
 
 		int opcao;
@@ -16,7 +20,7 @@ public class MenuFuncionario {
 			System.out.println("6 - Devolver um Livro");
 			System.out.println("7 - Acervo");
 			System.out.println("0 - Voltar para menu principal");
-			opcao = Console.readInt("\nDigite uma opção: ");
+			opcao = lerInteiro("\nDigite uma opção: ");
 			
 			switch (opcao) {
 			case 1:
@@ -50,6 +54,21 @@ public class MenuFuncionario {
 
 		} while (opcao != 0);
 
+	}
+	
+	public static int lerInteiro(String msg) {
+		boolean valorCorreto = false;
+		int valor = 0;
+		do {
+			try {
+				System.out.println(msg);
+				valor = Integer.parseInt(sc.next());
+				valorCorreto = true;
+			} catch (NumberFormatException e) {
+				System.out.println("\nDigite apenas números");
+			} 
+		}while(!valorCorreto);
+		return valor;
 	}
 
 }
