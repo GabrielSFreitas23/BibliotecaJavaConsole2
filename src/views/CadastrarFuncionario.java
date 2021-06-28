@@ -22,8 +22,6 @@ public class CadastrarFuncionario {
 		f.setIdade(Console.readInt("Idade: "));
 		f.setCpf(Console.readString("CPF: "));
 		
-		FuncionarioController.cadastrar(f);
-		
 		if(FuncionarioController.cadastrar(f) == 1) {
 			System.out.println("\nFUNCIONÁRIO CADASTRADO!!!\n");
 		} else if(FuncionarioController.cadastrar(f) == 2) {

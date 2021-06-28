@@ -11,9 +11,9 @@ public class FuncionarioController {
 	
 	public static int cadastrar(Funcionario f) {
 		if (Validacao.validarCpf(f.getCpf())) {
-			if (FuncionarioDAO.cadastrarFuncionario(f)) {
+			if (FuncionarioDAO.cadastrarFuncionario(f) == true) {
 				return 1;
-			} else {
+			} else if (FuncionarioDAO.cadastrarFuncionario(f) == false){
 				return 2;
 			}
 		}
