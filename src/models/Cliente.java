@@ -4,12 +4,12 @@ public class Cliente extends Pessoa{
 	
 	
 	public Cliente() {
-		
+		this.multa = false;
 	}
 	
 	private String endereco;
 	private String telefone;
-	
+	private boolean multa;
 	
 	
 	public String getEndereco() {
@@ -26,6 +26,14 @@ public class Cliente extends Pessoa{
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+	
+	public boolean getMulta() {
+		return multa;
+	}
+	
+	public void setMulta(boolean multa) {
+		this.multa = multa;
 	}
 
 	@Override

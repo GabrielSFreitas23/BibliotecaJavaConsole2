@@ -9,8 +9,8 @@ public class Acervo {
 		
 		
 			for(Livro livroCadastrado : LivroDAO.retornarLivros()) {
-					System.out.println("----------------------");
-					System.out.println(livroCadastrado);
+				System.out.println("----------------------");
+				System.out.println(livroCadastrado);
 				  
 			}
 		
